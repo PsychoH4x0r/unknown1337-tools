@@ -4,7 +4,7 @@ pip install -r requirements.txt
 python3 unknown1337.py
 
 
->[35 TOOLS]=======>
+>[35 TOOLS]=====>
 
 === SSL Certificate Analysis ===
 +---------------------+-----------------------------------+
