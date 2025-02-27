@@ -96,7 +96,7 @@ class Unknown1337Tools:
 ░╚═════╝░╚═╝░░╚══╝╚═╝░░╚═╝╚═╝░░╚══╝░╚════╝░░░░╚═╝░░░╚═╝░░╚═╝░░╚══╝╚══════╝╚═════╝░╚═════╝░░░╚═╝░░░
         """)
         print(Fore.CYAN + "═════════════════════════════════════════════════════════════════════════")
-        print(Fore.RED + "GITHUB: " + Fore.WHITE + "https://github.com/PsychoH4x0r/ultimate-tools")
+        print(Fore.RED + "GITHUB: " + Fore.WHITE + "https://github.com/PsychoH4x0r/unknown1337-tools")
         print(Fore.YELLOW + "WARNING: " + Fore.WHITE + "F0r H4x0r p3n3tr4ti0n t3st1n9 0nly!\n")
 
     def main_menu(self):
