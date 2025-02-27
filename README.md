@@ -10,8 +10,9 @@ python3 unknown1337.py
 
 
 
-requirements>>>>> KALI LINUX ALL INSTALL
+requirements>>>>> KALI LINUX ALL INSTALL  
 
-
+pip install python-whois
+pip install --upgrade python-whois
 
 
