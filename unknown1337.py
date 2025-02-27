@@ -2,9 +2,11 @@
 import os
 import sys
 from colorama import Fore, Style, init
+from modules.reverse_ip import ReverseIPLookup
+
+# Import modul lainnya tetap sama
 from modules import (
     port_scanner,
-    reverse_ip,
     vsftpd_exploit,
     whois_lookup,
     ssl_analyzer,
@@ -28,7 +30,6 @@ from modules import (
     s3_finder,
     xxe_tester,
     crlf_injection,
-    # Tambahan modul baru
     api_key_extractor,
     log4j_scanner,
     deserialization_exploit,
@@ -47,7 +48,7 @@ class Unknown1337Tools:
     def __init__(self):
         self.modules = {
             '1': ("Port Scanner", port_scanner.run),
-            '2': ("Reverse IP Lookup", reverse_ip.run),
+            '2': ("Reverse IP Lookup", ReverseIPLookup().run),
             '3': ("VS-FTPD 2.3.4 Exploit", vsftpd_exploit.run),
             '4': ("WHOIS Lookup", whois_lookup.run),
             '5': ("SSL/TLS Analyzer", ssl_analyzer.run),
@@ -71,7 +72,6 @@ class Unknown1337Tools:
             '23': ("S3 Bucket Finder", s3_finder.run),
             '24': ("XXE Tester", xxe_tester.run),
             '25': ("CRLF Injection", crlf_injection.run),
-            # 10 Modul Baru
             '26': ("API Key Extractor", api_key_extractor.run),
             '27': ("Log4j Scanner", log4j_scanner.run),
             '28': ("Deserialization Exploit", deserialization_exploit.run),
@@ -86,7 +86,6 @@ class Unknown1337Tools:
 
     def show_banner(self):
         print(Fore.MAGENTA + r"""
-
 ██╗░░░██╗███╗░░██╗██╗░░██╗███╗░░██╗░█████╗░░██╗░░░░░░░██╗███╗░░██╗░░███╗░░██████╗░██████╗░███████╗
 ██║░░░██║████╗░██║██║░██╔╝████╗░██║██╔══██╗░██║░░██╗░░██║████╗░██║░████║░░╚════██╗╚════██╗╚════██║
 ██║░░░██║██╔██╗██║█████═╝░██╔██╗██║██║░░██║░╚██╗████╗██╔╝██╔██╗██║██╔██║░░░█████╔╝░█████╔╝░░░░██╔╝
@@ -100,33 +99,30 @@ class Unknown1337Tools:
 
     def main_menu(self):
         while True:
-            os.system('clear')
+            os.system('clear' if os.name == 'posix' else 'cls')
             self.show_banner()
             print(Fore.GREEN + "🛠️  MAIN MENU - 35 PENTESTING TOOLS")
             print(Fore.CYAN + "───────────────────────────────────")
-            
-            # Tampilan dua kolom untuk 35 tools
+
             modules = list(self.modules.items())
             half = (len(modules) + 1) // 2
-            
+
             for i in range(half):
                 col1 = modules[i]
                 col2 = modules[i + half] if (i + half) < len(modules) else (None, None)
-                
                 left = f"{Fore.YELLOW}{col1[0].rjust(2)}. {col1[1][0]}"
                 right = f"{Fore.YELLOW}{col2[0].rjust(2)}. {col2[1][0]}" if col2[0] else ""
-                
                 print(f"{left.ljust(45)}{right}")
-            
+
             print(Fore.YELLOW + "\n 0. Exit")
             print(Fore.CYAN + "──────────────────────────────────────────────────────")
 
             choice = input("\n[+] Select Tool (1-35): ")
-            
+
             if choice == '0':
                 sys.exit()
             elif choice in self.modules:
-                os.system('clear')
+                os.system('clear' if os.name == 'posix' else 'cls')
                 try:
                     self.modules[choice][1]()
                 except Exception as e:
