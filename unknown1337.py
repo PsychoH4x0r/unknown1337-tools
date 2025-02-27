@@ -2,9 +2,10 @@
 import os
 import sys
 from colorama import Fore, Style, init
-from modules.reverse_ip import ReverseIPLookup
 
-# Import modul lainnya tetap sama
+# Import semua modul yang diperlukan
+from modules.reverse_ip import ReverseIPLookup
+from modules.ddos_tool import DDoSTool
 from modules import (
     port_scanner,
     vsftpd_exploit,
@@ -18,7 +19,6 @@ from modules import (
     cms_detector,
     ssh_bruteforce,
     vuln_scanner,
-    ddos_tool,
     metasploit_generator,
     wayback_scraper,
     google_dorking,
@@ -46,6 +46,7 @@ init(autoreset=True)
 
 class Unknown1337Tools:
     def __init__(self):
+        # Dictionary untuk semua tools
         self.modules = {
             '1': ("Port Scanner", port_scanner.run),
             '2': ("Reverse IP Lookup", ReverseIPLookup().run),
@@ -60,7 +61,7 @@ class Unknown1337Tools:
             '11': ("CMS Detector", cms_detector.run),
             '12': ("SSH Bruteforce", ssh_bruteforce.run),
             '13': ("Vulnerability Scanner", vuln_scanner.run),
-            '14': ("DDoS Tool", ddos_tool.run),
+            '14': ("DDoS Tool", DDoSTool().run),
             '15': ("Metasploit Generator", metasploit_generator.run),
             '16': ("Wayback Scraper", wayback_scraper.run),
             '17': ("Google Dorking", google_dorking.run),
@@ -94,7 +95,7 @@ class Unknown1337Tools:
 ░╚═════╝░╚═╝░░╚══╝╚═╝░░╚═╝╚═╝░░╚══╝░╚════╝░░░░╚═╝░░░╚═╝░░╚═╝░░╚══╝╚══════╝╚═════╝░╚═════╝░░░╚═╝░░░
         """)
         print(Fore.CYAN + "═════════════════════════════════════════════════════════════════════════")
-        print(Fore.RED + "GITHUB: " + Fore.WHITE + "https://github.com/PsychoH4x0r/unknown1337-tools")
+        print(Fore.RED + "GITHUB: " + Fore.WHITE + "https://github.com/PsychoH4x0r/ultimate-tools")
         print(Fore.YELLOW + "WARNING: " + Fore.WHITE + "F0r H4x0r p3n3tr4ti0n t3st1n9 0nly!\n")
 
     def main_menu(self):
@@ -104,14 +105,17 @@ class Unknown1337Tools:
             print(Fore.GREEN + "🛠️  MAIN MENU - 35 PENTESTING TOOLS")
             print(Fore.CYAN + "───────────────────────────────────")
 
+            # Tampilan dua kolom untuk 35 tools
             modules = list(self.modules.items())
             half = (len(modules) + 1) // 2
 
             for i in range(half):
                 col1 = modules[i]
                 col2 = modules[i + half] if (i + half) < len(modules) else (None, None)
+
                 left = f"{Fore.YELLOW}{col1[0].rjust(2)}. {col1[1][0]}"
                 right = f"{Fore.YELLOW}{col2[0].rjust(2)}. {col2[1][0]}" if col2[0] else ""
+
                 print(f"{left.ljust(45)}{right}")
 
             print(Fore.YELLOW + "\n 0. Exit")
