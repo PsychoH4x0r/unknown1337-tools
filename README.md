@@ -10,6 +10,8 @@ python3 unknown1337.py
 
 
 
+requirements>>>>> KALI LINUX ALL INSTALL
+
 
 
 
